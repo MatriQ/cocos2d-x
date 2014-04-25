@@ -65,13 +65,17 @@ THE SOFTWARE.
 // Structure timeval has define in winsock.h, include windows.h for it.
 #include <Windows.h>
 //#include <WinSock2.h>
-
+#if CC_TARGET_PLATFORM == CC_PLATFORM_WP8
+// wp8 support winsock2, winrt not support
+#include <WinSock2.h>
+#else
 #undef timeval
 struct timeval
 {
- 	long tv_sec;		// seconds
- 	long tv_usec;    // microSeconds
+	long tv_sec;        // seconds
+	long tv_usec;    // microSeconds
 };
+#endif
 
 struct timezone
 {

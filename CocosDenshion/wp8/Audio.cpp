@@ -541,7 +541,7 @@ void Audio::PreloadSoundEffect(const char* pszFilePath, bool isMusic)
 
 	m_soundEffects[sound].m_soundEffectSampleRate = mediaStreamer.GetOutputWaveFormatEx().nSamplesPerSec;
 
-	// Queue in-memory buffer for playback
+	// Queue in-memory buffer for playbackUnloadSoundEffect
 	ZeroMemory(&m_soundEffects[sound].m_audioBuffer, sizeof(m_soundEffects[sound].m_audioBuffer));
 
 	m_soundEffects[sound].m_audioBuffer.AudioBytes = m_soundEffects[sound].m_soundEffectBufferLength;
